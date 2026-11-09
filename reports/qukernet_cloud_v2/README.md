@@ -11,3 +11,5 @@
 - [历史云容量](figures/historical_cloud_capacity.png)
 
 原始数据、逐样本标签、线路参数、核矩阵和预测不在本目录。方法变更及新实验协议见课程docs和cloud_v2模块。
+
+[可编辑实施报告 DOCX](QuKerNet天衍云端复现与课程实施报告.docx)。报告保留预检未决状态，未包含原始金融数据或详细账户记录。
