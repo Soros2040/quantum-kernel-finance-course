@@ -1,0 +1,18 @@
+{
+  "observed_date": "2026-11-10",
+  "location": "Wuying independent Linux CPU environment",
+  "python": "3.11.15",
+  "unit_tests": 76,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "sdk_parse_checks": 6,
+  "sdk_parse_passed": 6,
+  "pip_check": "passed",
+  "cloud_calls_by_these_checks": 0,
+  "scope": "synthetic data, analytic references, mocked cloud faults, real Torch MLP; not cloud numerical success",
+  "notebook_offline_count": 6,
+  "notebook_code_cells": 18,
+  "notebook_passed": 6,
+  "legacy_environment_dependencies_unchanged": true
+}

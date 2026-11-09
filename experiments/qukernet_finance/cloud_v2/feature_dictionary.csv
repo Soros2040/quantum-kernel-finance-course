@@ -1,0 +1,81 @@
+id,name,group,formula,window_sessions,edge_policy,timing
+F01,log_momentum_1,price,log(C[t]/C[t-1]),1,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F02,log_momentum_2,price,log(C[t]/C[t-2]),2,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F03,log_momentum_3,price,log(C[t]/C[t-3]),3,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F04,log_momentum_5,price,log(C[t]/C[t-5]),5,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F05,log_momentum_10,price,log(C[t]/C[t-10]),10,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F06,log_momentum_15,price,log(C[t]/C[t-15]),15,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F07,log_momentum_20,price,log(C[t]/C[t-20]),20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F08,log_momentum_40,price,log(C[t]/C[t-40]),40,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F09,log_momentum_60,price,log(C[t]/C[t-60]),60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F10,log_momentum_120,price,log(C[t]/C[t-120]),120,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F11,overnight_gap,price,log(O[t]/C[t-1]),1,H=L gives 0 for body/wick; invalid OHLC gives NaN,available at decision-date close; trailing calendar-aligned window
+F12,intraday_return,price,log(C[t]/O[t]),1,H=L gives 0 for body/wick; invalid OHLC gives NaN,available at decision-date close; trailing calendar-aligned window
+F13,log_range,price,log(H[t]/L[t]),1,H=L gives 0 for body/wick; invalid OHLC gives NaN,available at decision-date close; trailing calendar-aligned window
+F14,true_range,price,"max(H-L,abs(H-Cprev),abs(L-Cprev))/Cprev",1,H=L gives 0 for body/wick; invalid OHLC gives NaN,available at decision-date close; trailing calendar-aligned window
+F15,body_fraction,price,(C-O)/(H-L),1,H=L gives 0 for body/wick; invalid OHLC gives NaN,available at decision-date close; trailing calendar-aligned window
+F16,wick_imbalance,price,"(H-max(O,C)-min(O,C)+L)/(H-L)",1,H=L gives 0 for body/wick; invalid OHLC gives NaN,available at decision-date close; trailing calendar-aligned window
+F17,mean_deviation_5,trend,C[t]/mean_5(C)-1,5,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F18,mean_deviation_10,trend,C[t]/mean_10(C)-1,10,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F19,mean_deviation_20,trend,C[t]/mean_20(C)-1,20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F20,mean_deviation_40,trend,C[t]/mean_40(C)-1,40,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F21,mean_deviation_60,trend,C[t]/mean_60(C)-1,60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F22,mean_deviation_120,trend,C[t]/mean_120(C)-1,120,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F23,log_price_slope_20,trend,OLS slope of log(C) on 0..19,20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F24,log_price_slope_60,trend,OLS slope of log(C) on 0..59,60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F25,log_price_r2_20,trend,OLS R2 of log(C) on 0..19,20,zero response variance gives NaN,available at decision-date close; trailing calendar-aligned window
+F26,log_price_r2_60,trend,OLS R2 of log(C) on 0..59,60,zero response variance gives NaN,available at decision-date close; trailing calendar-aligned window
+F27,high_distance_20,trend,C[t]/max_20(H)-1,20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F28,high_distance_60,trend,C[t]/max_60(H)-1,60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F29,return_rms_5,volatility,sqrt(mean_5(r^2)); r=log(C/Cprev),5,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F30,return_rms_10,volatility,sqrt(mean_10(r^2)); r=log(C/Cprev),10,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F31,return_rms_20,volatility,sqrt(mean_20(r^2)); r=log(C/Cprev),20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F32,return_rms_40,volatility,sqrt(mean_40(r^2)); r=log(C/Cprev),40,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F33,return_rms_60,volatility,sqrt(mean_60(r^2)); r=log(C/Cprev),60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F34,return_sd_20,volatility,"std_20(r,ddof=1)",20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F35,return_sd_60,volatility,"std_60(r,ddof=1)",60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F36,parkinson_20,volatility,sqrt(mean_20(log(H/L)^2)/(4*log(2))),20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F37,parkinson_60,volatility,sqrt(mean_60(log(H/L)^2)/(4*log(2))),60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F38,garman_klass_20,volatility,sqrt(mean_20(0.5*log(H/L)^2-(2*log(2)-1)*log(C/O)^2)),20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F39,garman_klass_60,volatility,sqrt(mean_60(0.5*log(H/L)^2-(2*log(2)-1)*log(C/O)^2)),60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F40,mean_log_range_20,volatility,mean_20(log(H/L)),20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F41,volume_ratio_5,volume,V[t]/mean_5(V)-1,5,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F42,volume_ratio_10,volume,V[t]/mean_10(V)-1,10,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F43,volume_ratio_20,volume,V[t]/mean_20(V)-1,20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F44,volume_ratio_60,volume,V[t]/mean_60(V)-1,60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F45,log1p_volume_change_1,volume,u[t]-u[t-1]; u=log1p(V),1,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F46,log1p_volume_change_5,volume,u[t]-u[t-5]; u=log1p(V),5,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F47,log1p_volume_change_20,volume,u[t]-u[t-20]; u=log1p(V),20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F48,volume_cv_20,volume,"std_20(V,ddof=1)/mean_20(V)",20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F49,volume_cv_60,volume,"std_60(V,ddof=1)/mean_60(V)",60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F50,log1p_volume_slope_20,volume,OLS slope of u=log1p(V) on 0..19,20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F51,log1p_volume_change_sd_20,volume,"std_20(u-u.shift(1),ddof=1)",20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F52,zero_volume_fraction_20,volume,mean_20(1[V=0]),20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F53,return_volume_change_corr_20,price_volume,"corr_20(r,delta u)",20,zero variance gives NaN,available at decision-date close; trailing calendar-aligned window
+F54,return_volume_change_corr_60,price_volume,"corr_60(r,delta u)",60,zero variance gives NaN,available at decision-date close; trailing calendar-aligned window
+F55,abs_return_volume_corr_20,price_volume,"corr_20(abs(r),u)",20,zero variance gives NaN,available at decision-date close; trailing calendar-aligned window
+F56,abs_return_volume_corr_60,price_volume,"corr_60(abs(r),u)",60,zero variance gives NaN,available at decision-date close; trailing calendar-aligned window
+F57,signed_volume_5,price_volume,sum_5(sign(r)*V)/sum_5(V),5,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F58,signed_volume_20,price_volume,sum_20(sign(r)*V)/sum_20(V),20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F59,signed_volume_60,price_volume,sum_60(sign(r)*V)/sum_60(V),60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F60,clv_volume_20,price_volume,sum_20(CLV*V)/sum_20(V); CLV=(2*C-H-L)/(H-L),20,H=L gives CLV=0; zero total volume gives NaN,available at decision-date close; trailing calendar-aligned window
+F61,clv_volume_60,price_volume,sum_60(CLV*V)/sum_60(V); CLV=(2*C-H-L)/(H-L),60,H=L gives CLV=0; zero total volume gives NaN,available at decision-date close; trailing calendar-aligned window
+F62,volume_weighted_return_20,price_volume,sum_20(V*r)/sum_20(V),20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F63,downside_rms_10,tail,"sqrt(mean_10(min(r,0)^2))",10,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F64,downside_rms_20,tail,"sqrt(mean_20(min(r,0)^2))",20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F65,downside_rms_60,tail,"sqrt(mean_60(min(r,0)^2))",60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F66,return_skew_20,tail,m3/m2^1.5 over 20 r; mk=mean((r-mean(r))^k),20,zero m2 gives NaN,available at decision-date close; trailing calendar-aligned window
+F67,return_skew_60,tail,m3/m2^1.5 over 60 r; mk=mean((r-mean(r))^k),60,zero m2 gives NaN,available at decision-date close; trailing calendar-aligned window
+F68,return_excess_kurtosis_20,tail,m4/m2^2-3 over 20 r,20,zero m2 gives NaN,available at decision-date close; trailing calendar-aligned window
+F69,return_excess_kurtosis_60,tail,m4/m2^2-3 over 60 r,60,zero m2 gives NaN,available at decision-date close; trailing calendar-aligned window
+F70,negative_return_fraction_20,tail,mean_20(1[r<0]),20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F71,maximum_negative_return_20,tail,"max_20(max(-r,0))",20,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F72,maximum_drawdown_60,tail,"max_j(1-C[j]/max_{i<=j}(C[i])); both i,j inside latest 60 values",60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F73,illiquidity_20,liquidity,mean(abs(r)/(C*V)) over positive-volume values in 20 sessions,20,at least ceil(.8*h) positive-volume values; missing price/volume invalidates window,available at decision-date close; trailing calendar-aligned window
+F74,illiquidity_60,liquidity,mean(abs(r)/(C*V)) over positive-volume values in 60 sessions,60,at least ceil(.8*h) positive-volume values; missing price/volume invalidates window,available at decision-date close; trailing calendar-aligned window
+F75,relative_range_5,liquidity,mean_5(2*(H-L)/(H+L)),5,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F76,relative_range_60,liquidity,mean_60(2*(H-L)/(H+L)),60,NaN if required observations or denominator are invalid,available at decision-date close; trailing calendar-aligned window
+F77,return_sign_autocorr_20,path,"corr_20(sign(r[i]),sign(r[i-1]))",20,zero variance gives NaN,available at decision-date close; trailing calendar-aligned window
+F78,return_sign_autocorr_60,path,"corr_60(sign(r[i]),sign(r[i-1]))",60,zero variance gives NaN,available at decision-date close; trailing calendar-aligned window
+F79,path_efficiency_20,path,abs(sum_20(r))/sum_20(abs(r)),20,all-zero valid path gives 0,available at decision-date close; trailing calendar-aligned window
+F80,path_efficiency_60,path,abs(sum_60(r))/sum_60(abs(r)),60,all-zero valid path gives 0,available at decision-date close; trailing calendar-aligned window

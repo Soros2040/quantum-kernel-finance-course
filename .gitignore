@@ -1,0 +1,41 @@
+# Local environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Private configuration and local data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+data/raw/
+data/private/
+private/
+local_config.*
+
+# Unreviewed experiment outputs
+runs/
+outputs/
+logs/
+*.log
+
+# Private numerical artifacts and historical local execution contract
+*.npz
+*.npy
+*.parquet
+*.pkl
+*.pickle
+*.pt
+*.pth
+/experiments/qukernet_finance/plan.md
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini

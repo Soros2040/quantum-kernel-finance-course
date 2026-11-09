@@ -1,0 +1,21 @@
+{
+  "version": "cloud_v2_20261110",
+  "created_utc": "2026-11-09T18:03:41.566556+00:00",
+  "new_cloud_submissions": 4,
+  "new_cloud_requested_shots": 512,
+  "cloud_status": "observation_timeout_new_submissions_stopped",
+  "returned_shot_rows": 0,
+  "actual_backend_executed_shots": null,
+  "fee_evidence": "verified_current_account_separate_simulator_package",
+  "description": "已向天衍全振幅提交4条4比特解析预检线路，共512请求shots；5分钟内未返回结果，网页显示运行中。按协议停止新增提交，仅查询原任务。股票搜索尚未启动。",
+  "source_ledger_sha256": "8aad5a1c0b3dc763ef519791feee1bad9e08226ece5f84db2a122712b461ca04",
+  "observed_utc": "2026-11-09T18:00:39.688682+00:00",
+  "historical_source_table_sha256": {
+    "search_rows.csv": "fd640bf7f4aad2dc7ed122c992d519a7cab1ec061a54e4bb4d8bb551ed6294a7",
+    "finite_summary_rows.csv": "df75664f0e33554187b89455a51c681c413fefa06901684a83eb54ebaaff72ce",
+    "benchmark20_rows.csv": "c2ecb5d498b40f6c2a099a7590119caef652f125d5ae55c91b3cd949c0a6aee0"
+  },
+  "historical_figures_are_newly_plotted_from_old_records": true,
+  "public_data_scope": "aggregate metrics only; no raw prices, labels, angles, matrices or predictions",
+  "historical_finite_caveat": "The exact candidate loss range is below 0.01; zero rates at 0.01/0.02/0.05 do not establish useful reliability."
+}

@@ -1,0 +1,260 @@
+{
+  "schema_version": "cloud_v2_protocols_1",
+  "selected_route": {
+    "profile": "quantum_kernel",
+    "variant": "qsvc_primary_krr_extension",
+    "sdk": "cqlib",
+    "adapter_id": "application_owned_qcis_tianyan",
+    "adapter_version": "cloud_v2",
+    "quantum_execution": "TianYan cloud probability circuits only",
+    "gradient": "individual physical RX/RY/RZ occurrence shifts on both overlap ends, followed by classical raw-KTA chain rule"
+  },
+  "scope": "Complete QuKerNet method chain transferred to stock tasks; scaled stages are not numerical reproductions of the original datasets or full quotas.",
+  "common": {
+    "features": 40,
+    "shots": 128,
+    "learning_rate": 0.2,
+    "kernel_seconds": 300,
+    "configuration_seconds": 1800,
+    "classification_estimator": "precomputed SVC C=1 with compatible positive-spectrum train/cross mapping",
+    "classification_target": "same class +1; different class -1",
+    "regression_target": "centered target outer product with centered raw kernel",
+    "regression_lambdas": [
+      0.001,
+      0.01,
+      0.1
+    ],
+    "final_selection": "evaluate ALL valid k*configuration endpoints on V; evaluate O only after selection",
+    "padding": "zero rotation for incomplete final feature chunk; padding excluded from masks",
+    "feature_block_layout": "independent axes and CNOT chain per feature block; repeat each block depth times",
+    "predictor": {
+      "hidden": 128,
+      "activation": "ReLU",
+      "target_multiplier": 10,
+      "optimizer": "Adam",
+      "learning_rate": 0.01,
+      "epochs": 30,
+      "batch_size": 32,
+      "dtype": "float64",
+      "loss": "SmoothL1",
+      "label_code_split": [
+        0.8,
+        0.2
+      ]
+    },
+    "quantum_diagonal": "one analytically for ideal normalized fidelity only; noise experiment requires a separate measured-diagonal protocol",
+    "gate_shift_rule": "+/-pi/2 per physical RX/RY/RZ occurrence, inverse-end coefficient included; no direct KTA shift",
+    "no_local_quantum_fallback": true,
+    "batch_circuit_limit": 20,
+    "emitted_cnot": "H(target) CZ(control,target) H(target)",
+    "spectral_tolerance": "1e-10 * max(1, max(abs(train_eigenvalues)))",
+    "configuration_deadline_scope": "initial/final training kernels, optimization and final V kernel share 1800 seconds",
+    "degenerate_minibatch": "record sampled indices and scientific rejection; never resample",
+    "classification_baseline": "training majority class; exact ties to zero; accuracy, balanced accuracy and available AUC",
+    "snapshot_admission": "local frozen NPZ and JSON sidecar checksums; preprocessing and preparation-source hashes must match"
+  },
+  "stages": {
+    "pilot8": {
+      "qubits": 8,
+      "n_train": 16,
+      "n_valid": 16,
+      "labels": 16,
+      "candidate_pool": 512,
+      "top_k": 2,
+      "configurations": 2,
+      "steps": 3,
+      "batch_size": 8,
+      "max_parameters": 2,
+      "depths": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "purpose": "bounded complete-chain pilot, not a predictive-performance claim"
+    },
+    "core8": {
+      "qubits": 8,
+      "n_train": 32,
+      "n_valid": 32,
+      "labels": 64,
+      "candidate_pool": 50000,
+      "top_k": 3,
+      "configurations": 3,
+      "steps": 10,
+      "batch_size": 8,
+      "max_parameters": 4,
+      "depths": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "purpose": "scaled complete cloud search chain"
+    },
+    "scale20": {
+      "qubits": 20,
+      "n_train": 16,
+      "n_valid": 16,
+      "labels": 50,
+      "candidate_pool": 50000,
+      "top_k": 5,
+      "configurations": 5,
+      "steps": 5,
+      "batch_size": 8,
+      "max_parameters": 2,
+      "depths": [
+        1
+      ],
+      "purpose": "scaled 20-qubit complete cloud chain"
+    },
+    "scale36": {
+      "qubits": 36,
+      "n_train": 16,
+      "n_valid": 16,
+      "labels": 50,
+      "candidate_pool": 50000,
+      "top_k": 5,
+      "configurations": 5,
+      "steps": 5,
+      "batch_size": 8,
+      "max_parameters": 2,
+      "depths": [
+        1
+      ],
+      "purpose": "scaled 36-qubit complete cloud chain, requires its own passed preflight"
+    },
+    "full8_target": {
+      "qubits": 8,
+      "n_train": 150,
+      "n_valid": 150,
+      "labels": 1000,
+      "candidate_pool": 50000,
+      "top_k": 10,
+      "configurations": 20,
+      "steps": 30,
+      "batch_size": 30,
+      "max_parameters": 39,
+      "depths": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "purpose": "registered large-scale target; no promise of completion within the budget"
+    }
+  },
+  "execution_gates": {
+    "confirmed_free": true,
+    "confirmed_zero_real_device_quota": true,
+    "cumulative_experiment_hours": 72,
+    "unknown_submission": "stop, reconcile; never blindly resubmit",
+    "fees": "absence of proof blocks submission",
+    "limits": "the account ledger enforces the accepted cumulative shots and probability-circuit caps; request budgets are not observed successful measurements"
+  },
+  "experiment_registry": [
+    {
+      "id": "layout_distribution",
+      "source": "L001 p2 Table1",
+      "status": "not_run",
+      "scope": "1000 sampled stock kernels; distribution rather than only maximum"
+    },
+    {
+      "id": "feature_selection_concentration",
+      "source": "p8 Fig2b",
+      "status": "not_run",
+      "scope": "8/16/24/32/40 features and full admitted feature pool; KV plus downstream metric"
+    },
+    {
+      "id": "mrmr_random_features",
+      "source": "p8 Fig2c",
+      "status": "not_run",
+      "scope": "same dimensionality and 300 paired circuit layouts"
+    },
+    {
+      "id": "kta_proxy",
+      "source": "pp8-9 Fig3",
+      "status": "not_run",
+      "scope": "tiny chronological stock window, exhaustive 4-qubit layout space"
+    },
+    {
+      "id": "three_stage_search",
+      "source": "p9 Table2",
+      "status": "not_run",
+      "entrypoint": "run_search",
+      "scope": "all stages and every final configuration evaluated on V"
+    },
+    {
+      "id": "matched_baselines",
+      "source": "p9 Fig4",
+      "status": "not_run",
+      "scope": "RBF/HEAK/TEK; independent cloud budget for quantum baselines"
+    },
+    {
+      "id": "random_search",
+      "source": "p22 Fig12",
+      "status": "not_run",
+      "entrypoint": "run_search(method='random')",
+      "scope": "matched M+k complete KTA evaluations and matched tuning quotas; separate from the 200-layout distribution comparison"
+    },
+    {
+      "id": "device_noise",
+      "source": "pp22-23 Fig14a",
+      "status": "not_run",
+      "scope": "needs explicit device/noise model; cannot substitute TianYan noise for ibmq_quito without naming the change"
+    },
+    {
+      "id": "depolarizing_noise",
+      "source": "pp23-24 Fig14b",
+      "status": "not_run",
+      "scope": "four strengths; noisy diagonals and channel placement must be registered before execution"
+    },
+    {
+      "id": "nkn",
+      "source": "p24 Table5",
+      "status": "not_run",
+      "scope": "classical adaptive kernel; source/default and tuned results separate"
+    },
+    {
+      "id": "bayesian_search",
+      "source": "p24 Table6",
+      "status": "not_run",
+      "scope": "Optuna 1000 iterations; not the same control as random kernels"
+    },
+    {
+      "id": "20q_36q",
+      "source": "pp24-25 Table7 plus 36q extension",
+      "status": "not_run",
+      "entrypoint": "scale20/scale36",
+      "scope": "complete scaled chain, all declared qubits encode active features"
+    },
+    {
+      "id": "80_features",
+      "source": "p25 Table8",
+      "status": "not_run",
+      "scope": "80 admitted distinct nonconstant candidates; requires a separately frozen 80-input stage"
+    },
+    {
+      "id": "configuration_budget",
+      "source": "p25 Table9",
+      "status": "not_run",
+      "scope": "k=5/10, configurations=0/5/10/20; actual attempts and costs separate"
+    },
+    {
+      "id": "regression_extension",
+      "source": "stock-task extension",
+      "status": "not_run",
+      "entrypoint": "run_search(task='regression')",
+      "scope": "centered KTA and KRR, not original classification numerics"
+    },
+    {
+      "id": "finite_shots",
+      "source": "stock-task extension",
+      "status": "not_run",
+      "scope": "real cloud finite reads; no local re-sampling substituted for execution"
+    }
+  ]
+}

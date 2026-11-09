@@ -1,0 +1,4 @@
+shots,requested,completed,successful,failed,modal_fraction,mean_regret,nominal_shots,real_cloud_shots,harmful_001_rate,harmful_002_rate,harmful_005_rate
+32,20,20,20,0,0.65,0.0010837641877132,14643200,0,0.0,0.0,0.0
+128,20,20,20,0,0.8,0.0004825231519737,58572800,0,0.0,0.0,0.0
+512,20,20,20,0,1.0,0.0,234291200,0,0.0,0.0,0.0

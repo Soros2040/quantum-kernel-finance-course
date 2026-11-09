@@ -1,0 +1,8 @@
+backend,advertised_qubits_at_audit,qubits,layers,requested_shots,status,first_observed_seconds,status_date
+tianyan_sw,36,4,2,100,passed,,2026-11-08
+tianyan_sw,36,4,16,100,passed,,2026-11-08
+tianyan_sw,36,16,16,100,passed,5.63,2026-11-08
+tianyan_sw,36,24,16,100,passed,5.7,2026-11-08
+tianyan_sw,36,30,16,100,passed,61.15,2026-11-08
+tianyan_sw,36,36,16,100,terminal_failure_cause_unknown,,2026-11-09
+tianyan_s,5000,64,16,100,account_qubit_permission_rejected,,2026-11-08

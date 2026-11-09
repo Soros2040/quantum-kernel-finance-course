@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Please cite this course when reusing its original teaching materials or code."
+title: "量化投资与量子核：QuKerNet股票任务复现与有限测量诊断"
+type: software
+authors:
+  - family-names: Zhou
+    given-names: Julius
+  - name: AUFE
+  - family-names: Lei
+    given-names: Cong
+repository-code: "https://github.com/Soros2040/quantum-kernel-finance-course"
+license: MIT
+date-released: 2026-11-10
+version: "0.2.0"
